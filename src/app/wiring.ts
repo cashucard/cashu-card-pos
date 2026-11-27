@@ -7,7 +7,7 @@ import type { SaleReport } from '../till/sale-machine';
 import type { TillService } from '../till/service';
 import type { ScheduleSource, TillReport } from '../till/settle';
 
-export const LIBRARY_VERSION = '0.3.0+pos.11';
+export const LIBRARY_VERSION = '0.4.0';
 
 /** What the app shows, for the host (development) and nothing else. */
 export interface AppReport {

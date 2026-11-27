@@ -2,8 +2,11 @@
 import { readFileSync } from 'node:fs';
 
 const lock = readFileSync(new URL('../yarn.lock', import.meta.url), 'utf8');
+const manifest = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 const entries = lock.split(/\n(?=[^\s#])/).map((block) => ({
   key: block.split('\n')[0],
+  resolved: block.match(/\n {2}resolved "([^"]+)"/)?.[1],
+  integrity: block.match(/\n {2}integrity (\S+)/)?.[1],
   version: (block.match(/\n {2}version "([^"]+)"/) || [])[1],
 }));
 const named = (name) => entries.filter((e) => e.key.replace(/^"/, '').startsWith(name + '@'));
@@ -16,17 +19,21 @@ const want = (name, version, count) => {
 };
 for (const n of ['@noble/curves', '@noble/hashes', '@scure/base', '@scure/bip32']) want(n, '2.4.0');
 want('@cashu/cashu-ts', '4.11.0', 1);
-want('cashucard', '0.3.0+pos.11', 1);
-want('cashucard-react-native', '0.3.0', 1);
+want('cashucard', '0.4.0', 1);
+want('cashucard-react-native', '0.4.0', 1);
 want('react-native-nfc-manager', '3.17.5', 1);
 want('react-native', '0.77.1', 1);
 want('react', '18.3.1', 1);
 want('@op-engineering/op-sqlite', '14.1.4', 1);
 want('react-native-keychain', '10.0.0', 1);
-const cc = named('cashucard')[0];
-if (cc && !cc.key.includes('harness/vendor/cashucard-0.3.0+pos.11.tgz')) bad.push('cashucard is not the vendored tarball: ' + cc.key);
-const nfc = named('cashucard-react-native')[0];
-if (nfc && !nfc.key.includes('harness/vendor/cashucard-react-native-0.3.0.tgz')) bad.push('cashucard-react-native must resolve to the vendored tarball');
+for (const name of ['cashucard', 'cashucard-react-native']) {
+  const url = `https://github.com/cashucard/cashu-card-typescript/releases/download/v0.4.0/${name}-0.4.0.tgz`;
+  const entry = named(name)[0];
+  if (manifest.dependencies[name] !== url || entry?.key !== `"${name}@${url}":` ||
+      entry.resolved?.split('#')[0] !== url || !/^sha512-[A-Za-z0-9+/]{86}==$/.test(entry.integrity ?? '')) {
+    bad.push(name + ' must use its public release archive with SHA-512 integrity.');
+  }
+}
 if (bad.length) {
   console.error(bad.join('\n'));
   process.exit(1);
