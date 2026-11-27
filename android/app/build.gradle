@@ -108,7 +108,12 @@ def redirectCheck = tasks.register('redirectCheck', Exec) {
     workingDir rootProject.projectDir.parentFile
     commandLine 'sh', 'scripts/redirect-check.sh'
 }
-tasks.named('preBuild') { dependsOn redirectCheck }
+tasks.named('preBuild') {
+    dependsOn redirectCheck
+    // CMake consumes these generated JNI projects on the first build from a clean checkout.
+    dependsOn ':op-engineering_op-sqlite:generateCodegenArtifactsFromSchema'
+    dependsOn ':react-native-keychain:generateCodegenArtifactsFromSchema'
+}
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
