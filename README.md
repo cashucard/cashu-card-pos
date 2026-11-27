@@ -6,7 +6,7 @@ Cashiers can also check a card’s balance, top it up and return change through 
 
 ## Build and integrate
 
-The developer guide follows a sale from the keypad through the card tap and settlement. Building the app or running the tests requires two separately supplied Cashu Card SDK archives. These versions are unpublished on npm. Developers with access can verify the exact files and install them using the guide. [Developer guide](docs/developer-guide.md)
+The developer guide follows a sale from the keypad through the card tap and settlement. A clean checkout installs the public TypeScript reader and React Native NFC transport from the versioned GitHub release using the repository’s frozen lockfile. [Developer guide](docs/developer-guide.md)
 
 For the NFC protocol and simulator, see the [Cashu Card developer resources](https://cashucard.org/developers). To prepare a compatible blank card, use [Cashu Card Setup](https://cashucard.org/#install).
 

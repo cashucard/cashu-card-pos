@@ -39,7 +39,6 @@ local.properties
 *.p12
 *.p8
 *.mobileprovision
-/harness/vendor/*.tgz
 
 # node.js
 #

@@ -4,22 +4,14 @@ Cashu Card POS 1.2.0 (build 14) is a React Native app that takes Cashu card, Cas
 
 ## Install the dependencies
 
-Use Node 22.13 or newer and Yarn Classic 1.22.22. The test suite uses Node’s built-in SQLite module. The app pins React Native 0.77.1 and the public Cashu wallet SDK `@cashu/cashu-ts` 4.11.0. The two card SDKs below are separate dependencies. The public POS source omits their package archives, and these versions are unpublished on npm. The reader supplies the card balance, top-up and offline payment APIs. The transport connects the reader to the phone’s NFC hardware. [Dependency pins](../package.json)
+Use Node 22.13 or newer and Yarn Classic 1.22.22. The test suite uses Node’s built-in SQLite module. The app pins React Native 0.77.1 and the public Cashu wallet SDK `@cashu/cashu-ts` 4.11.0. The TypeScript reader and React Native NFC transport are both version 0.4.0. The app pins their public release archives, and Yarn verifies their integrity during installation. Both have the same compiled code as the SDKs used for the build 14 phone binaries. [SDK release](https://github.com/cashucard/cashu-card-typescript/releases/tag/v0.4.0) · [Dependency pins](../package.json)
 
-| Required archive | Version |
-| --- | --- |
-| `harness/vendor/cashucard-0.3.0+pos.11.tgz` | 0.3.0+pos.11 |
-| `harness/vendor/cashucard-react-native-0.3.0.tgz` | 0.3.0 |
-
-If you have authorized copies, place them at the paths above. Verify their SHA-256 digests against the published [checksums](../harness/vendor/SHA256SUMS), then install from the repository root.
+From a fresh checkout, install the dependencies and check the resolved versions.
 
 ```sh
-(cd harness/vendor && shasum -a 256 -c SHA256SUMS)
 yarn install --frozen-lockfile
 yarn deps:check
 ```
-
-On Linux you can use `(cd harness/vendor && sha256sum -c SHA256SUMS)` for the first command. Both files should report `OK`.
 
 ## Run a checkout test
 

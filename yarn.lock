@@ -2256,13 +2256,15 @@ caniuse-lite@^1.0.30001826:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001826.tgz#6c2cc43e4858e54d6f7200fa87b4de93cb39aa77"
   integrity sha512-wTB+9tIbLro/BCXwLuNV1meHE4L9dS6dArMDwgYfNBPMYScqClHyGunhkCSDtHhe/69Xl0sHlKgBVZ+fNsYtWA==
 
-"cashucard-react-native@file:./harness/vendor/cashucard-react-native-0.3.0.tgz":
-  version "0.3.0"
-  resolved "file:./harness/vendor/cashucard-react-native-0.3.0.tgz#4196c62d1d68e62553d048845fd82b59ff081263"
+"cashucard-react-native@https://github.com/cashucard/cashu-card-typescript/releases/download/v0.4.0/cashucard-react-native-0.4.0.tgz":
+  version "0.4.0"
+  resolved "https://github.com/cashucard/cashu-card-typescript/releases/download/v0.4.0/cashucard-react-native-0.4.0.tgz#016a93dda41fdde98fa28c6fe100ead37856a21a"
+  integrity sha512-ls+GND/NS47BVL0JW0aitfz1lMcKZmp81qC6Cr63FqANEBYHYnalmkkXDq0JDO5++GGVuPcekn7Xlp0h3hkgXw==
 
-"cashucard@file:./harness/vendor/cashucard-0.3.0+pos.11.tgz":
-  version "0.3.0+pos.11"
-  resolved "file:./harness/vendor/cashucard-0.3.0+pos.11.tgz#a6017746ec865694da218c56cc2227cd33b97aa5"
+"cashucard@https://github.com/cashucard/cashu-card-typescript/releases/download/v0.4.0/cashucard-0.4.0.tgz":
+  version "0.4.0"
+  resolved "https://github.com/cashucard/cashu-card-typescript/releases/download/v0.4.0/cashucard-0.4.0.tgz#0c232945bb96b1966bfc25416a41e8f61e74e9f6"
+  integrity sha512-8usa6+iCipYY+V5koyWrG7dZBUtfxEF19BLfN/4eTCA9NjRVAIJcNX/vHirsUPFJDdTtV4PAROgsTaCSNRa8pg==
   dependencies:
     "@cashu/cashu-ts" "4.11.0"
     "@noble/hashes" "2.4.0"
