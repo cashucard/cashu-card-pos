@@ -27,11 +27,11 @@ want('react', '18.3.1', 1);
 want('@op-engineering/op-sqlite', '14.1.4', 1);
 want('react-native-keychain', '10.0.0', 1);
 for (const name of ['cashucard', 'cashucard-react-native']) {
-  const url = `https://github.com/cashucard/cashu-card-typescript/releases/download/v0.4.0/${name}-0.4.0.tgz`;
+  const url = `https://registry.npmjs.org/${name}/-/${name}-0.4.0.tgz`;
   const entry = named(name)[0];
-  if (manifest.dependencies[name] !== url || entry?.key !== `"${name}@${url}":` ||
+  if (manifest.dependencies[name] !== '0.4.0' || entry?.key !== `${name}@0.4.0:` ||
       entry.resolved?.split('#')[0] !== url || !/^sha512-[A-Za-z0-9+/]{86}==$/.test(entry.integrity ?? '')) {
-    bad.push(name + ' must use its public release archive with SHA-512 integrity.');
+    bad.push(name + ' must use its pinned npm release with SHA-512 integrity.');
   }
 }
 if (bad.length) {
