@@ -113,6 +113,7 @@ tasks.named('preBuild') {
     // CMake consumes these generated JNI projects on the first build from a clean checkout.
     dependsOn ':op-engineering_op-sqlite:generateCodegenArtifactsFromSchema'
     dependsOn ':react-native-keychain:generateCodegenArtifactsFromSchema'
+    dependsOn ':react-native-svg:generateCodegenArtifactsFromSchema'
 }
 
 dependencies {
