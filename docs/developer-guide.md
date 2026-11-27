@@ -4,7 +4,7 @@ Cashu Card POS 1.2.0 (build 14) is a React Native app that takes Cashu card, Cas
 
 ## Install the dependencies
 
-Use Node 22.13 or newer and Yarn Classic 1.22.22. The test suite uses Node’s built-in SQLite module. The app pins React Native 0.77.1 and the public Cashu wallet SDK `@cashu/cashu-ts` 4.11.0. The TypeScript reader and React Native NFC transport are both version 0.4.0. The app pins their public release archives, and Yarn verifies their integrity during installation. Both have the same compiled code as the SDKs used for the build 14 phone binaries. [SDK release](https://github.com/cashucard/cashu-card-typescript/releases/tag/v0.4.0) · [Dependency pins](../package.json)
+Use Node 22.13 or newer and Yarn Classic 1.22.22. The test suite uses Node’s built-in SQLite module. The app pins React Native 0.77.1 and the public Cashu wallet SDK `@cashu/cashu-ts` 4.11.0. The TypeScript reader and React Native NFC transport are both version 0.4.0. The app pins their exact npm versions, and Yarn verifies the package archives during installation. Both have the same compiled code as the SDKs used for the build 14 phone binaries. [SDK release](https://github.com/cashucard/cashu-card-typescript/releases/tag/v0.4.0) · [Dependency pins](../package.json)
 
 From a fresh checkout, install the dependencies and check the resolved versions.
 
