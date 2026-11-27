@@ -1,0 +1,9 @@
+# Slice 2.3: wait up to 300 s for an element by testID, then a screenshot. ID; NAME. (Slice 2.3b: 300 s, not 30: a
+# hand archive of 1,000 payments on a phone takes minutes.)
+appId: org.cashucard.pos
+---
+- extendedWaitUntil:
+    visible:
+      id: "${ID}"
+    timeout: 300000
+- takeScreenshot: ${NAME}

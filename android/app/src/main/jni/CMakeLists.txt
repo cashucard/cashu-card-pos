@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.13)
+project(appmodules)
+include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
+find_package(openssl REQUIRED CONFIG)
+target_sources(appmodules PRIVATE backup/BackupKey.cpp)
+target_include_directories(appmodules PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../native/ccpos-store/ios")
+target_link_libraries(appmodules openssl::crypto)

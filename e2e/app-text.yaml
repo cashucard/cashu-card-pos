@@ -1,0 +1,11 @@
+# Slice 1.1: wait for an element and check its text. ID; TEXT (a regular expression to Maestro: no ( ) ? + * in it); NAME.
+appId: org.cashucard.pos
+---
+- extendedWaitUntil:
+    visible:
+      id: "${ID}"
+    timeout: 60000
+- assertVisible:
+    id: "${ID}"
+    text: "${TEXT}"
+- takeScreenshot: ${NAME}

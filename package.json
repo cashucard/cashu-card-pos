@@ -1,0 +1,63 @@
+{
+  "name": "cashucard-pos",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Cashu Card POS: a reference till for Cashu Cards on the cashucard library.",
+  "license": "MIT",
+  "packageManager": "yarn@1.22.22",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "bundle:check": "sh scripts/bundle-check.sh",
+    "deps:check": "node scripts/check-deps.mjs",
+    "redirect:check": "sh scripts/redirect-check.sh",
+    "start": "react-native start --port 8091 --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@cashu/cashu-ts": "4.11.0",
+    "@noble/ciphers": "2.4.0",
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "@op-engineering/op-sqlite": "14.1.4",
+    "@scure/base": "2.4.0",
+    "@sinonjs/text-encoding": "0.7.3",
+    "cashucard": "file:./harness/vendor/cashucard-0.3.0+pos.11.tgz",
+    "cashucard-react-native": "file:./harness/vendor/cashucard-react-native-0.3.0.tgz",
+    "qrcode-generator": "2.0.4",
+    "react": "18.3.1",
+    "react-native": "0.77.1",
+    "react-native-get-random-values": "1.11.0",
+    "react-native-keychain": "10.0.0",
+    "react-native-nfc-manager": "3.17.5",
+    "react-native-svg": "15.12.1",
+    "react-native-url-polyfill": "2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.7",
+    "@babel/preset-env": "7.29.7",
+    "@babel/runtime": "7.29.10",
+    "@react-native-community/cli": "15.0.1",
+    "@react-native-community/cli-platform-android": "15.0.1",
+    "@react-native-community/cli-platform-ios": "15.0.1",
+    "@react-native/babel-preset": "0.77.1",
+    "@react-native/metro-config": "0.77.1",
+    "@react-native/typescript-config": "0.77.1",
+    "@types/jest": "29.5.14",
+    "@types/react": "18.3.31",
+    "@types/react-test-renderer": "18.3.1",
+    "jest": "29.7.0",
+    "jsqr": "1.4.0",
+    "react-test-renderer": "18.3.1",
+    "typescript": "5.0.4"
+  },
+  "resolutions": {
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0",
+    "@scure/base": "2.4.0",
+    "@scure/bip32": "2.4.0"
+  },
+  "op-sqlite": {
+    "sqlcipher": true
+  }
+}

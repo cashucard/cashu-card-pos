@@ -1,0 +1,16 @@
+# The shell's self-test (slice 0.2): launch, wait for the run to finish, read its verdict.
+# org.cashucard.pos is a placeholder bundle id until the owner chooses one.
+appId: org.cashucard.pos
+---
+- launchApp:
+    appId: org.cashucard.pos
+    clearState: true
+    stopApp: true
+- extendedWaitUntil:
+    visible:
+      id: "selftest-done"
+    timeout: 300000
+- takeScreenshot: selftest-result
+- assertVisible:
+    id: "selftest-verdict"
+    text: "SELFTEST PASS"

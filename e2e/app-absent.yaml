@@ -1,0 +1,6 @@
+# Slice 1.3: an element must not be shown (after up to Maestro's own wait). ID; NAME.
+appId: org.cashucard.pos
+---
+- assertNotVisible:
+    id: "${ID}"
+- takeScreenshot: ${NAME}

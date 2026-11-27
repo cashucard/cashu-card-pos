@@ -1,0 +1,12 @@
+# Slice 2.3: Share the payment list, then the share sheet's Copy. NAME.
+appId: org.cashucard.pos
+---
+- tapOn:
+    id: "records-share"
+- extendedWaitUntil:
+    visible:
+      text: "Copy"
+    timeout: 15000
+- takeScreenshot: ${NAME}
+- tapOn:
+    text: "Copy"

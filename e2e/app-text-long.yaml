@@ -1,0 +1,11 @@
+# Slice 1.2: as app-text, waiting up to 150 s (the sale's 30 s, 60 s and 120 s waits). ID; TEXT; NAME.
+appId: org.cashucard.pos
+---
+- extendedWaitUntil:
+    visible:
+      id: "${ID}"
+    timeout: 150000
+- assertVisible:
+    id: "${ID}"
+    text: "${TEXT}"
+- takeScreenshot: ${NAME}

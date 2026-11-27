@@ -1,0 +1,8 @@
+# Slice 1.1: wait for one element of the till's screens (the app is already running). ID; NAME for the screenshot.
+appId: org.cashucard.pos
+---
+- extendedWaitUntil:
+    visible:
+      id: "${ID}"
+    timeout: 60000
+- takeScreenshot: ${NAME}

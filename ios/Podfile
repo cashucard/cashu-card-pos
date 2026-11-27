@@ -1,0 +1,44 @@
+# Cashu Card POS (slice 0.2): React Native 0.77.1's own pod set-up, plus one build setting for this Mac's Xcode.
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+target 'CashuCardPOS' do
+  config = use_native_modules!
+  # The journal's directory, excluded from backup (slice 0.3): the app's own module.
+  pod 'CCPOSStore', :path => '../native/ccpos-store'
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+    )
+    # Xcode 26.4 and later cannot build fmt 11.0.2 (a React Native dependency) as C++20. Build that pod as C++17.
+    installer.pods_project.targets.each do |t|
+      case t.name
+      when 'fmt'
+        t.build_configurations.each { |c| c.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17' }
+      when 'RNSVG-RNSVGFilters'
+        # The SVG resource bundle declares iOS 12.4. Build it for the app's supported minimum.
+        t.build_configurations.each { |c| c.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = min_ios_version_supported }
+      end
+    end
+  end
+end

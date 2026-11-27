@@ -1,0 +1,22 @@
+# Slice 1.2: type four digits on the PIN pad, then OK. P1..P4: the digits (the card simulator's test PINs only).
+appId: org.cashucard.pos
+---
+- extendedWaitUntil:
+    visible:
+      id: "pin-key-0"
+    timeout: 60000
+- tapOn:
+    id: "pin-key-${P1}"
+- tapOn:
+    id: "pin-key-${P2}"
+- tapOn:
+    id: "pin-key-${P3}"
+- tapOn:
+    id: "pin-key-${P4}"
+- scrollUntilVisible:
+    element:
+      id: "pin-ok"
+    direction: DOWN
+    timeout: 15000
+- tapOn:
+    id: "pin-ok"

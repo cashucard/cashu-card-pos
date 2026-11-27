@@ -1,0 +1,13 @@
+# Slice 1.2: set a two-digit amount on the sale's keypad. A, B: the digits.
+appId: org.cashucard.pos
+---
+- extendedWaitUntil:
+    visible:
+      id: "key-${A}"
+    timeout: 30000
+- tapOn:
+    id: "key-clear"
+- tapOn:
+    id: "key-${A}"
+- tapOn:
+    id: "key-${B}"

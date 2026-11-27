@@ -1,0 +1,13 @@
+# Slice 1.4: scroll down to an element, then check its text. ID; TEXT (a regular expression to Maestro: no ( ) ? + * as
+# text); NAME.
+appId: org.cashucard.pos
+---
+- scrollUntilVisible:
+    element:
+      id: "${ID}"
+    direction: DOWN
+    timeout: 30000
+- assertVisible:
+    id: "${ID}"
+    text: "${TEXT}"
+- takeScreenshot: ${NAME}

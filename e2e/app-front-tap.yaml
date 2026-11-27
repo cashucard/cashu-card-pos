@@ -1,0 +1,8 @@
+# Slice 2.3b: the app brought to the front (not started again) and an element pressed at once, so that the press lands
+# while the settle the front starts still runs. ID.
+appId: org.cashucard.pos
+---
+- launchApp:
+    stopApp: false
+- tapOn:
+    id: "${ID}"

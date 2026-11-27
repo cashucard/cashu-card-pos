@@ -1,0 +1,6 @@
+# Slice 2.4 (ENG-911): type into a field and leave the keyboard up. ID; TEXT.
+appId: org.cashucard.pos
+---
+- tapOn:
+    id: "${ID}"
+- inputText: "${TEXT}"

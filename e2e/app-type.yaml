@@ -1,0 +1,7 @@
+# Slice 1.1: type into a field. ID; TEXT.
+appId: org.cashucard.pos
+---
+- tapOn:
+    id: "${ID}"
+- inputText: "${TEXT}"
+- hideKeyboard

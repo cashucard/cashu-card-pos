@@ -1,0 +1,10 @@
+# Slice 1.1: scroll to an element and tap it. ID.
+appId: org.cashucard.pos
+---
+- scrollUntilVisible:
+    element:
+      id: "${ID}"
+    direction: DOWN
+    timeout: 15000
+- tapOn:
+    id: "${ID}"

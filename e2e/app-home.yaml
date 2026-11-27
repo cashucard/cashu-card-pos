@@ -1,0 +1,33 @@
+# Return to Sell through idle tabs or a detail screen's own Back button.
+# The caller completes any active payment or token handoff first.
+appId: org.cashucard.pos
+---
+- repeat:
+    times: 6
+    commands:
+      - runFlow:
+          when:
+            visible:
+              id: "home-sale"
+            notVisible:
+              id: "home-title"
+          commands:
+            - tapOn:
+                id: "home-sale"
+      - runFlow:
+          when:
+            notVisible:
+              id: "home-sale"
+          commands:
+            - scrollUntilVisible:
+                element:
+                  id: "nav-back"
+                direction: UP
+                timeout: 5000
+                visibilityPercentage: 50
+            - tapOn:
+                id: "nav-back"
+- assertVisible:
+    id: "home-title"
+- assertVisible:
+    id: "sale-title"
